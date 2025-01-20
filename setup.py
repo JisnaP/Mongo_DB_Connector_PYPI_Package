@@ -1,15 +1,16 @@
 from setuptools import setup, find_packages
 from typing import List
 HYPEN_E_DOT='-e .'
-def get_requirement(file_path:str)->List[str]:
-    requirements = []
+def get_requirement(file_path: str) -> List[str]:
+    """Read and parse a requirements file."""
+    if not os.path.exists(file_path):
+        print(f"Warning: {file_path} not found. Skipping...")
+        return []
     with open(file_path) as f:
-        requirements=f.readlines()
-        requirements=[req.replace("\n","")for req in requirements]
-        
-        if HYPEN_E_DOT in requirements:
-            requirements.remove(HYPEN_E_DOT)
-    return requirements
+        requirements = [line.strip() for line in f if line.strip() and not line.startswith("#")]
+        if "-e ." in requirements:
+            requirements.remove("-e .")
+        return requirements
 
      
 with open('README.md', 'r', encoding='utf-8') as f:
