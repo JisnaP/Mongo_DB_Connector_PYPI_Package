@@ -4,6 +4,7 @@ dnspython
 pandas
 numpy
 ensure
+pandas-stubs
 
 
 -e .
