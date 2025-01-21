@@ -69,7 +69,7 @@ class mongo_operation:
         if self.path.endswith('.csv'):
             dataframe = pd.read_csv(self.path, encoding='utf-8')
         elif self.path.endswith(".xlsx"):
-            dataframe = pd.read_excel(self.path, encoding='utf-8')
+            dataframe = pd.read_excel(self.path)
         else:
             raise ValueError("Unsupported file format")
         # Explicitly ensure to_json() result is valid
