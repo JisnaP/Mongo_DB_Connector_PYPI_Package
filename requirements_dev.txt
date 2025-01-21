@@ -13,5 +13,5 @@ pytest==7.1.3
 tox==3.25.1
 black==22.8.0
 flake8==5.0.4
-numpy
+mypy==0.971
 -e .
