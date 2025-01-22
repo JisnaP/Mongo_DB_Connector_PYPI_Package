@@ -17,11 +17,11 @@ class mongo:
     def create_mongo_client(self, collection: Optional[str] = None) -> MongoClient:
         self.client = MongoClient(self.client_url)
         return self.client
-
+    
     def create_database(self, collection: Optional[str] = None) -> Any:
-        if mongo.__database is None:
+        if mongo.__database is None:  # Check if self.database is None
             client = self.create_mongo_client(collection)
-            self.database = client[self.database_name]
+            self.database = client[self.database_name]  # Initialize self.database here
         return self.database
 
     def set_new_database(self, database: str) -> None:
