@@ -17,7 +17,7 @@ A Python library to simplify MongoDB operations like creating databases, collect
 Install the package via pip:
 
 ```bash
-pip install databaseautomation
+pip install mongoautomation_packagenew
 ```
 
 ---
@@ -29,13 +29,13 @@ Here's a quick guide to get started with the package:
 ### 1. Import and Initialize
 
 ```python
-from databaseautomation import mongo_operation
+from mongoautomation_packagenew import mongo_operation
 ```
 
 Initialize the MongoDB operations:
 
 ```python
-mongo_ops = mongo_operation(
+mongo_ops = mongo(
     client_url="mongo_url",
     database_name="my_database",
     collection_name="my_collection"
