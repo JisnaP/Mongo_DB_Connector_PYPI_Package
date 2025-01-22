@@ -22,7 +22,7 @@ from databaseautomation import mongo_operation
 # Initialize the MongoDB operations
 ```bash
 mongo_ops = mongo_operation(
-    client_url="mongodb://localhost:27017",
+    client_url="mongo_url",
     database_name="my_database",
     collection_name="my_collection"
 )

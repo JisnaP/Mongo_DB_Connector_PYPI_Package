@@ -18,7 +18,7 @@ with open('README.md', 'r', encoding='utf-8') as f:
     long_description = f.read()     
    
 
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 REPO_NAME = "Mongo_DB_Connector_PYPI_Package"
 PKG_NAME= "mongodatabaseautomation"
 AUTHOR_USER_NAME = "JisnaP"
