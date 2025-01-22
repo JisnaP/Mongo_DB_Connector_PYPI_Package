@@ -4,7 +4,7 @@ import pandas as pd
 import json
 
 
-class mongo_operation:
+class mongo:
     __collection: Optional[str] = None  # private/protected variable
     __database: Optional[str] = None
     client: Optional[MongoClient] = None
@@ -19,36 +19,36 @@ class mongo_operation:
         return self.client
 
     def create_database(self, collection: Optional[str] = None) -> Any:
-        if mongo_operation.__database is None:
+        if mongo.__database is None:
             client = self.create_mongo_client(collection)
             self.database = client[self.database_name]
         return self.database
 
     def set_new_database(self, database: str) -> None:
         self.database = self.create_mongo_client()[database]
-        mongo_operation.__database = database
+        mongo.__database = database
         self.database_name = database
 
     def set_new_collection(self, collection_name: str) -> None:
         self.collection = self.__connect_database()[collection_name]
-        mongo_operation.__collection = collection_name
+        mongo.__collection = collection_name
         self.collection_name = collection_name
 
     def __connect_database(self) -> Any:
-        if mongo_operation.__database is None:
+        if mongo.__database is None:
             self.database = self.create_mongo_client()[self.database_name]
         return self.database
 
     def create_collection(self, collection_name: Optional[str] = None) -> Any:
-        if mongo_operation.__collection is None:
+        if mongo.__collection is None:
             database = self.create_database(collection_name)
             self.collection = database[self.collection_name]
-            mongo_operation.__collection = collection_name
+            mongo.__collection = collection_name
 
-        if mongo_operation.__collection != collection_name:
+        if mongo.__collection != collection_name:
             database = self.create_database(collection_name)
             self.collection = database[self.collection_name]
-            mongo_operation.__collection = collection_name
+            mongo.__collection = collection_name
 
         return self.collection
 
