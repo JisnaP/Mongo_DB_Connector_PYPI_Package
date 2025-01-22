@@ -62,6 +62,8 @@ class mongo:
         elif isinstance(record, dict):
             collection = self.create_collection(collection_name)
             collection.insert_one(record)
+        else:
+            raise TypeError("record must be a dict or list of dicts")
 
     def bulk_insert(self, datafile: str, collection_name: Optional[str] = None) -> None:
         self.path = datafile
